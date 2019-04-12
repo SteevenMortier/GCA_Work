@@ -89,9 +89,12 @@ bool Collision(Car tab, int nbp, Point P)
 			B = tab.m_coords[0];
 		else
          		B = tab.m_coords[i + 1];
-     		int iseg = intersectsegment(A, B, I, P);
-     		if (iseg == -1)
-         		return Collision(tab, nbp, P);
+     	int iseg = intersectsegment(A, B, I, P);
+     	if (iseg == -1)
+		{
+			std::cout << "Segv" << std::endl;
+			return Collision(tab, nbp, P);
+		}
      	nbintersections += iseg;
   	}
   	if (nbintersections % 2 == 1)
